@@ -1,0 +1,21 @@
+body {
+    background-image: url('../images/bg1.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+h1 {
+    color: white;
+}
+
+table {
+    color: white;
+}
+
+tbody tr:hover {
+    background-color: #003b2e !important; /* Bootstrap's 'success' green */
+    color: white;
+  }
+
