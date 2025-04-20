@@ -1,4 +1,7 @@
 <?php 
+    if(!isset($_SESSION)){
+        session_start();
+    }
     include_once('../connection.php');
     $con = connection();
 
@@ -54,9 +57,31 @@
         if(isset($_POST['updating_details'])){
             $first_name = $_POST['first_name'];
             $last_name = $_POST['last_name'];
+            $age = $_POST['age'];
+            $gender = $_POST['gender'];
+            $address = $_POST['address'];
             $email = $_POST['email'];
-            $query = "UPDATE teacher SET first_name = '$first_name', last_name = '$last_name', email = '$email' WHERE id = '$id'";
+            $password = $_POST['password'];
 
+            $access_clause = "";
+            if(isset($_SESSION['Access']) && $_SESSION['Access'] == "admin"){
+                $access = $_POST['access'];
+                $access_clause = ", `access`='$access'";
+            }
+    
+            if(isset($_FILES['image']) && $_FILES['image']['name'] != ""){
+                $image_name = $_FILES['image']['name'];
+                $image_tmp = $_FILES['image']['tmp_name'];
+                $image_path = "../assets/uploads/" . basename($image_name);
+                move_uploaded_file($image_tmp, $image_path);
+    
+                $query = "UPDATE `teacher` SET `first_name`='$first_name',`last_name`='$last_name', `age`='$age',`gender`='$gender',`address`='$address',`email`='$email',
+                `password`='$password',`teacher_image`='$image_name'$access_clause WHERE id = '$id'";
+            } else {
+                $query = "UPDATE `teacher` SET `first_name`='$first_name',`last_name`='$last_name', `age`='$age',`gender`='$gender',`address`='$address',`email`='$email',
+                `password`='$password' $access_clause WHERE id = '$id'";
+            }
+    
             $con->query($query) or die ($con->error);
             header("Location:teachers_details.php?ID=".$id);
             exit;

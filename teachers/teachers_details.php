@@ -34,7 +34,7 @@
                         
                     </div>
                     <div class="mt-2 mb-2 mr-2">
-                        <img src="../assets/uploads/<?php echo $student_byID['teacher_image']; ?>" class="img-fluid rounded-start" alt="No image" style="height: 300px; width: 300px; border:5px solid black;">
+                        <img src="../assets/uploads/<?php echo $teacher_byID['teacher_image']; ?>" class="img-fluid rounded-start" alt="No image" style="height: 300px; width: 300px; border:5px solid black;">
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                 <?php }?>
 
             </div>
-            <form action="<?php echo $update_func;?>" method="POST">
+            <form action="<?php echo $update_func;?>" method="POST" enctype="multipart/form-data">
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -68,10 +68,10 @@
                             <input type="text" name="age" class="form-control" value="<?php echo $teacher_byID['age']?>">
                         </div>
                         <div class="form-group">
-                            <label for="gender">Gender</label>
+                            <label for="gender">Gender: </label>
                             <select name="gender" id="gender">
-                                <option value="Male" <?php echo ($student_byID['gender'] == "Male")? 'selected' : '';?>>Male</option>
-                                <option value="Female" <?php echo ($student_byID['gender'] == "Female")? 'selected' : '';?>>Female</option>
+                                <option value="Male" <?php echo ($teacher_byID['gender'] == "Male")? 'selected' : '';?>>Male</option>
+                                <option value="Female" <?php echo ($teacher_byID['gender'] == "Female")? 'selected' : '';?>>Female</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -81,6 +81,28 @@
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="text" name="email" class="form-control" value="<?php echo $teacher_byID['email']?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control" value="<?php echo $teacher_byID['password']?>">
+                        </div>
+                        <?php if(isset($_SESSION['Access']) && $_SESSION['Access'] == "admin"){?>
+                            <div class="form-group">
+                                <label for="access">Access: </label>
+                                <select name="access" id="access">
+                                    <option value="admin" <?php echo ($teacher_byID['access'] == "admin")? 'selected' : '';?>>admin</option>
+                                    <option value="teacher" <?php echo ($teacher_byID['access'] == "etacher")? 'selected' : '';?>>teacher</option>
+                                </select>
+                            </div>
+                        <?php }?>
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <br>
+                            <?php if(!empty($teacher_byID['teacher_image'])): ?>
+                                <img src="../assets/uploads/<?php echo $teacher_byID['teacher_image']; ?>" style="width: 100px; height: 100px;">
+                                <br>
+                            <?php endif; ?>
+                            <input type="file" name="image" />
                         </div>
                     </div>
                     <div class="modal-footer">
