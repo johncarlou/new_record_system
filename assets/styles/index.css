@@ -1,0 +1,30 @@
+body {
+    background-image: url('../images/bg1.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+h1 {
+    color: white;
+}
+
+table {
+    color: white;
+}
+
+tbody tr:hover {
+    background-color: rgba(13, 202, 240, 0.1) !important; /* Bootstrap's 'success' green */
+    color: #0dcaf0 !important;
+  }
+
+.sidebar .nav-link {
+    transition: background-color 0.3s, color 0.3s;
+    }
+
+.sidebar .nav-link:hover {
+background-color: rgba(255, 255, 255, 0.2);
+color: #0dcaf0 !important;
+border-radius: 5px;
+}
