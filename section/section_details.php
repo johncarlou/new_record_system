@@ -1,8 +1,11 @@
 <?php 
+<<<<<<< HEAD
     if(!isset($_SESSION)){
         session_start();
     }
     
+=======
+>>>>>>> c061a3bd2b0bfcf5c2403d15dc9cac373693f181
     include_once('section_controller.php');
 
     $id = $_GET['ID'];
@@ -14,10 +17,21 @@
 ?>
 
 <?php include('../views/header.php'); ?>
+<<<<<<< HEAD
 
 <div class="container-fluid mt-5">
     <?php include('../views/burger_button.php'); ?>
     <div class="row justify-content-center">
+=======
+<div class="d-md-none bg-light px-2 py-2">
+    <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#sidebarMenu">
+        ☰ Menu
+    </button>
+</div>
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center">
+        
+>>>>>>> c061a3bd2b0bfcf5c2403d15dc9cac373693f181
         <?php include('../views/navbar.php'); ?>
         <div class="col-12 col-md-9 col-lg-8 p-3">
             <table class="table table-bordered table-striped text-white">
