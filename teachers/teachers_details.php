@@ -40,7 +40,7 @@
             </div>
             <div class="mt-2">
                 <a href="teachers_index.php" class="btn btn-primary text-white text-decoration-none">Back</a>
-                <?php if(isset($_SESSION['Access']) && $_SESSION['Access'] == "admin" || isset($_SESSION['Access']) && $_SESSION['UserLogin'] == $teacher_byID['email']){?>
+                <?php if ((isset($_SESSION['Access']) && $_SESSION['Access'] == "admin") || (isset($_SESSION['UserLogin']) && $_SESSION['UserLogin'] == $teacher_byID['email'])) { ?>
                     <button class="btn btn-success my-1" data-toggle="modal" data-target="#exampleModal">Update</button>
                 <?php }?>
 
@@ -91,7 +91,7 @@
                                 <label for="access">Access: </label>
                                 <select name="access" id="access">
                                     <option value="admin" <?php echo ($teacher_byID['access'] == "admin")? 'selected' : '';?>>admin</option>
-                                    <option value="teacher" <?php echo ($teacher_byID['access'] == "etacher")? 'selected' : '';?>>teacher</option>
+                                    <option value="teacher" <?php echo ($teacher_byID['access'] == "teacher")? 'selected' : '';?>>teacher</option>
                                 </select>
                             </div>
                         <?php }?>
