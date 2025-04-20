@@ -54,10 +54,12 @@
                         <td style="width: 160px; white-space: nowrap;">
                             <div class="d-flex justify-content-center" style=" gap: 5px;">
                                 <a href="teachers_details.php?ID=<?php echo $all_search_teacher['id']?>" class="btn btn-primary btn-sm">View</a>
-                                <form action="<?php echo $delete_func;?>" method="post" style="margin: 0;">
-                                    <input type="hidden" name="ID" value="<?php echo $all_search_teacher['id'];?>">
-                                    <button type="submit" name="deleting_teacher" class="btn btn-danger btn-sm">Delete</button>
-                                </form>
+                                <?php if(isset($_SESSION['Access']) && $_SESSION['Access'] == "admin"){?>
+                                    <form action="<?php echo $delete_func;?>" method="post" style="margin: 0;">
+                                        <input type="hidden" name="ID" value="<?php echo $row['id'];?>">
+                                        <button type="submit" name="deleting_teacher" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                <?php }?>
                             </div>
                         </td>
                     </tr>

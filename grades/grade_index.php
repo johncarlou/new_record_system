@@ -1,10 +1,7 @@
 <?php 
-<<<<<<< HEAD
     if(!isset($_SESSION)){
         session_start();
     }
-=======
->>>>>>> c061a3bd2b0bfcf5c2403d15dc9cac373693f181
     include_once('grade_controller.php');
     $all_grade = get_all_grade($con, $errorMessage);
     $add_func = add_grade($con);
@@ -12,17 +9,8 @@
 ?>
 
 <?php include('../views/header.php'); ?>
-<<<<<<< HEAD
 <div class="container-fluid mt-5">
     <?php include('../views/burger_button.php'); ?>
-=======
-<div class="d-md-none bg-light px-2 py-2">
-    <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#sidebarMenu">
-        ☰ Menu
-    </button>
-</div>
-<div class="container-fluid mt-5">
->>>>>>> c061a3bd2b0bfcf5c2403d15dc9cac373693f181
     <div class="row justify-content-center">
         <?php include('../views/navbar.php'); ?>
         <div class="col-12 col-md-9 col-lg-8 p-3">
@@ -73,11 +61,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-<<<<<<< HEAD
                             <label for="gradename">What grade level?</label>
-=======
-                            <label for="gradename">What grade?</label>
->>>>>>> c061a3bd2b0bfcf5c2403d15dc9cac373693f181
                             <input type="text" name="gradename" class="form-control">
                         </div>
                     </div>
