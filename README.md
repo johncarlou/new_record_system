@@ -1,4 +1,4 @@
-Here are the credentials for the admin to log in to the Simple CRUD Record System:
+Here are the credentials for the admin and teacher to log in to the My Updated Record System:
 
 Admin
 Username: mwilliams3@example.com
